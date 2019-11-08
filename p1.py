@@ -14,3 +14,10 @@ def sumaTodosLosCuadrados(limitTo):
 
 print(sumaTodos(100))
 print(sumaTodosLosCuadrados(3))
+
+#Demo Función de 1ª clase
+
+addAll = sumaTodos
+print(addAll(100))
+
+# addAll será una función de 1ª clase
