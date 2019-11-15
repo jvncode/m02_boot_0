@@ -18,7 +18,7 @@ class Termometro():
 		if temperatura == None:
 			return self.__temperatura
 		else:
-			self.__temperatura == temperatura
+			self.__temperatura = temperatura
 
 	def __conversorCelsiusFahrenheit(self, temperatura, unidad):
 		if unidad == "C":
@@ -51,34 +51,28 @@ class Termometro():
 			return "Unidad incorrecta"
 
 
-	def mide(self, uniM=None):
+	def mide(self, uniM=""):
 		uniM = uniM.upper()
 
-		if uniM == None or uniM == self.__unidadM:
+		if uniM == "" or uniM == self.__unidadM or uniM not in "C, F, K":
 			return self.__str__()
 
 		elif uniM == "C":
-			if self.__unidadM == uniM:
-				return self.__str__()
-			elif self.__unidadM == "F":
+			if self.__unidadM == "F":
 				return self.__conversorCelsiusFahrenheit(self.__temperatura, self.__unidadM)
-			elif self.__unidadM == "K":
+			else:
 				return self.__conversorKelvinCelsius(self.temperatura, self.__unidadM)
 
 		elif uniM == "F":
-			if self.__unidadM == uniM:
-				return self.__str__()
-			elif self.__unidadM == "C":
+			if self.__unidadM == "C":
 				return self.__conversorCelsiusFahrenheit(self.__temperatura, self.__unidadM)
-			elif self.__unidadM == "K":
+			else:
 				return self.__conversorFahrenheitKelvin(self.__temperatura, self.__unidadM)
 
 		elif uniM == "K":
-			if self.__unidadM == uniM:
-				return self.__str__()
-			elif self.__unidadM == "C":
+			if self.__unidadM == "C":
 				return self.__conversorKelvinCelsius(self.__temperatura, self.__unidadM)
-			elif self.__unidadM == "F":
+			else:
 				return self.__conversorFahrenheitKelvin(self.__temperatura, self.__unidadM)
 		else:
 			return self.__str__()
